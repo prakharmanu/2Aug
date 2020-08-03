@@ -1,22 +1,12 @@
-import collections
-def findAnagrams(s, p):
-    myDictP = collections.Counter(p)
-    myDictS = collections.Counter(s[:len(p)])
-    output = []
-    i = 0
-    j = len(p)
-    while j <= len(s):
-        if myDictS == myDictP:
-            output.append(i)
-        myDictS[s[i]] -= 1
-        if myDictS[s[i]] <= 0:
-            myDictS.pop(s[i])
-        if j < len(s):
-            myDictS[s[j]] += 1
-        j += 1
-        i += 1
-    return output
+def detectCapitalUse(word):
+    n = len(word)
+    upper = 0
+    for i in range(0,n):
+        if word[i] >= "A" and word[i] <= "Z":
+            upper += 1
+    if ((upper == n or upper == 0) or (word[0] >= "A" and word[0] <= "Z" and upper == 1)):
+            return True
+    return False
 
-s= "cbaebabacd"
-p= "abc"
-print(findAnagrams(s, p))
+word = "FlaG"
+print(detectCapitalUse(word))
