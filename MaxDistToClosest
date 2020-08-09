@@ -1,0 +1,13 @@
+def maxDistToClosest(arr):
+    left, right = -1, 0
+    max_distance = float('-inf')
+    while right != len(arr):
+        if arr[right] == 1:
+            if left == -1:
+                curr_max = right
+            else:
+                curr_max = (right - left) // 2
+            left = right
+            max_distance = max(max_distance, curr_max)
+        right += 1
+    return max(max_distance, len(arr) - left - 1)
