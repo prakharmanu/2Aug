@@ -1,0 +1,9 @@
+    def rotate(self, matrix: List[List[int]]) -> None:
+        m = len(matrix[0])
+        
+        for row in range(m):
+            for col in range(row,m):
+                matrix[row][col], matrix[col][row] = matrix[col][row], matrix[row][col]
+        
+        for i in range(m):
+            matrix[i].reverse()
