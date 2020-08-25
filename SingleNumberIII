@@ -1,0 +1,9 @@
+import collections
+def singleNumber(self, nums: List[int]) -> List[int]:
+        res =[]
+        dictAB = {}
+        dictAB = collections.Counter(nums)
+        for k,v in dictAB.items():
+            if v == 1:
+                res.append(k)
+        return res
