@@ -1,0 +1,13 @@
+    def mincostTickets(self, days: List[int], costs: List[int]) -> int:
+        import collections
+        days_dict = collections.Counter(days)
+        table = [0 for i in range(0, days[-1]+1)]
+        for i in range(0, days[-1]+1):
+            if i not in days_dict:
+                table[i] = table[i-1]
+            else:
+                table[i] = min(
+                    table[max(0,i-1)]+costs[0], # per days value
+                    table[max(0,i-7)]+costs[1], # per week value
+                    table[max(0,i-30)]+costs[2] # per year value)
+        return (table[-1])
