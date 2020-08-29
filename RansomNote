@@ -1,0 +1,9 @@
+    def canConstruct(self, ransomNote, magazine):
+        a = list(ransomNote)
+        b = list(magazine)
+        count = 0
+        for i in a:
+            if i in b:
+                count += 1
+                b.remove(i)
+        return count == len(a)
