@@ -1,0 +1,18 @@
+    def countSubstrings(self, s: str) -> int:
+        n = len(s)
+        result = 0
+        for i in range(n):
+            result += self.findP(i,i,s)
+            result += self.findP(i,i+1,s)
+        return result
+    
+    def findP(self,l,r,s):
+        temp = 0
+        while l>=0 and r<len(s):
+            if s[l]==s[r]:
+                temp += 1
+                l -= 1
+                r += 1
+            else :
+                break
+        return temp
