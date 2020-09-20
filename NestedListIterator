@@ -1,0 +1,18 @@
+import collections
+class NestedIterator:
+    def __init__(self, nestedList: [NestedInteger]):
+        self.queue = collections.deque([])
+        self.dfs(nestedList)
+        
+    def dfs(self,nlist):
+        for x in nlist:
+            if x.isInteger():
+                self.queue.append(x.getInteger())
+            else:
+                self.dfs(x.getList())
+    
+    def next(self) -> int:
+        return self.queue.popleft()
+    
+    def hasNext(self) -> bool:
+         return len(self.queue) > 0
