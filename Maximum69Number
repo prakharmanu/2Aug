@@ -1,0 +1,16 @@
+    def maximum69Number (self, num: int) -> int:
+        a = []
+        flag = 0
+        sum1 = 0
+        for i in str(num):
+            if i is '9':
+                a.append(int(i))
+            else:
+                if i == '6' and flag == 0:
+                    a.append(9)
+                    flag = 1
+                else:
+                    a.append(6)
+        for b in a:
+            sum1 = sum1*10 + b
+        return sum1
