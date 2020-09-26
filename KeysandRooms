@@ -1,0 +1,11 @@
+def canVisitAllRooms(rooms):
+    visited = [0] * len(rooms)
+    to_visit = [0]
+
+    while to_visit:
+        room = to_visit.pop()
+        if visited[room]: continue
+        visited[room] = 1
+        to_visit.extend(rooms[room])
+
+    return sum(visited) == len(rooms)
