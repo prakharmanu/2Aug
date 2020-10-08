@@ -1,0 +1,9 @@
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        ans = ''
+        for i in range(len(letters)):
+            if letters[i] > target:
+                ans = letters[i]
+                break
+            if i == len(letters)-1 and letters[i-1] <= target:
+                return letters[0]
+        return ans
