@@ -1,0 +1,5 @@
+    def destCity(self, paths: List[List[str]]) -> str:
+        sources = set([s for s, d in paths])
+        for s, d in paths:
+            if d not in sources:
+                return d
