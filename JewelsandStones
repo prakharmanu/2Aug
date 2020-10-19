@@ -1,0 +1,9 @@
+    def numJewelsInStones(self, J: str, S: str) -> int:
+        count = 0
+        import collections
+        c = collections.Counter(S)
+        for i in J:
+            for k,v in c.items():
+                if i == k:
+                    count += v
+        return count
