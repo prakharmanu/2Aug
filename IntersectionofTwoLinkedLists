@@ -1,0 +1,22 @@
+    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+        hA = headA
+        hB = headB
+        A = 0
+        while headA:
+            headA = headA.next
+            A +=1
+        B = 0
+        while headB:
+            headB = headB.next
+            B +=1
+        diff = A-B
+        while diff<0:
+            diff += 1
+            hB = hB.next
+        while diff>0:
+            hA = hA.next
+            diff -= 1
+        while hA != hB:
+            hA = hA.next
+            hB = hB.next
+        return hA
