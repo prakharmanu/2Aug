@@ -1,0 +1,4 @@
+    def rotate(self, nums,k):
+        k = k % len(nums)
+        if k == 0: return
+        nums[:-k], nums[-k:] = nums[-k:], nums[:-k]
