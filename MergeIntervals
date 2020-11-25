@@ -1,0 +1,9 @@
+def merge(intervals):
+	intervals.sort()
+	res = [intervals[0]]
+	for i in range(1, len(intervals)):
+		last_x, last_y = res[-1]
+		cur_x, cur_y = intervals[i]
+		if cur_x <= last_y: res[-1][1] = max(cur_y, last_y)
+		else: res.append([cur_x, cur_y])
+	return res
