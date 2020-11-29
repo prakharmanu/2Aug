@@ -1,0 +1,12 @@
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        a = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+        result = {}
+        for word in words:
+            s = ''
+            for i in word:
+                s += a[ord(i)-ord('a')]
+            if s not in result:
+                result[s] = 1 
+            else :
+                result[s] += 1
+        return len(result)
