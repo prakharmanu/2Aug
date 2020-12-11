@@ -1,0 +1,23 @@
+    def canReach(self, arr: List[int], start: int) -> bool:
+        seen = set()
+        q = deque()
+        q.append(start)
+        
+        while q:
+            curr = q.popleft()
+            if curr in seen:
+                continue
+            seen.add(curr)
+            if 0 <= curr - arr[curr] < len(arr):
+                if arr[curr-arr[curr]] == 0:
+                    return True
+                else:
+                    q.append(curr-arr[curr])
+                
+            if 0 <= curr + arr[curr] < len(arr):
+                if arr[curr+arr[curr]] == 0:
+                    return True
+                else:
+                    q.append(curr+arr[curr])
+
+        return False
