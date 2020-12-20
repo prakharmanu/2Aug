@@ -1,0 +1,12 @@
+    def merge(self, arr1, arr2, n, m): 
+        a = n-1
+        b = 0
+        while a >=0 and b < m:
+            if arr1[a] >= arr2[b]:
+                arr1[a],arr2[b] = arr2[b], arr1[a]
+                a -= 1
+                b += 1
+            else:
+                break
+        arr1.sort()
+        arr2.sort()
