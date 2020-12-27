@@ -1,0 +1,10 @@
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        l = len(nums)
+        k = l//3
+        res =[]
+        from collections import Counter
+        d = Counter(nums)
+        for i in d:
+            if d[i] > k:
+                res.append(i)
+        return res
