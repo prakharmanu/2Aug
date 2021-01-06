@@ -1,0 +1,9 @@
+	def rowWithMax1s(self,arr, n, m):
+		res = -1
+		col = 0
+		row = 0
+		for col in range(m):
+		    for row in range(n):
+		        if (arr[row][col] == 1):
+		            return row
+	    return res
