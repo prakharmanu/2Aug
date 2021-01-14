@@ -1,0 +1,9 @@
+    def countSquares(self, N):
+        # code here 
+        import math
+        a = math.sqrt(N)
+        b = math.floor(a)
+        if a.is_integer():
+            return int(a-1)
+        else:
+            return int(b)
