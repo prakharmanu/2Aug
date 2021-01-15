@@ -1,0 +1,11 @@
+from collections import Counter
+for i in range(int(input())):
+    N,K = [int(_) for _ in input().split()]
+    Arr = [int(_) for _ in input().split()]
+    flag = -1
+    dic = Counter(Arr)
+    for item in Arr:
+        if abs(K-item) in dic:
+            flag = 1
+            break
+    print(flag)
