@@ -1,0 +1,7 @@
+import heapq
+def findKthLargest4( nums, k):
+	ans = nums[:k]
+	heapq.heapify(ans)  # run time O(n)
+	for i in range(k, len(nums)):
+		heapq.heappushpop(ans, nums[i])  # if nums[i] > ans[0] => heapq.push, run time O(klgn)
+	return ans[0]
