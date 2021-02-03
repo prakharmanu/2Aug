@@ -1,0 +1,13 @@
+def smallestSubsequence( text):
+        last_idx, stack, check = dict(), [], set()
+        for i, c in enumerate(text):
+            last_idx[c] = i
+        for i, c in enumerate(text):
+            if c in check:
+                continue
+            while stack and c < stack[-1] and last_idx[stack[-1]] > i:
+                check.remove(stack[-1])
+                stack.pop()
+            check.add(c)
+            stack.append(c)
+        return ''.join(stack)
