@@ -1,0 +1,12 @@
+    def minRemoveToMakeValid(self, s: str) -> str:
+            stack, cur = [], ''
+            for c in s:
+                if c == '(':
+                    stack += [cur]
+                    cur = ''
+                elif c == ')':
+                    if stack:
+                        cur = stack.pop() + '(' + cur + ')'
+                else:
+                    cur += c
+            return cur
