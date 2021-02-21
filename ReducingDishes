@@ -1,0 +1,24 @@
+def get_coef_sum(s, i):
+        return sum((a+1)*b for a,b in enumerate(s[i:]))
+
+class Solution:
+    def maxSatisfaction(self, satisfaction: List[int]) -> int:
+        n = len(satisfaction)
+        s = sorted(satisfaction)
+        
+        l, r = 0, n
+        while l < r:
+            middle = l + (r-l)//2
+            cur_sum = get_coef_sum(s, middle)
+            left_bigger = middle == 0 or get_coef_sum(s, middle-1) >= cur_sum
+            right_bigger = middle == n-1 or get_coef_sum(s, middle+1) >= cur_sum
+
+            if not left_bigger and not right_bigger:
+                return get_coef_sum(s, middle)
+
+            elif left_bigger:
+                r = middle
+            else:
+                l = middle+1
+
+        return get_coef_sum(s, l)
