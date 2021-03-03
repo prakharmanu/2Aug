@@ -1,0 +1,20 @@
+    def maxProduct(self, root):
+        self.res = self.total = 0
+        
+        self.total = self.sum(root)
+        self.sum(root)
+        
+        return self.res % (10**9 + 7)
+    
+    def sum(self, root):
+        if not root: return 0
+        
+        leftSum = self.sum(root.left)
+        rightSum = self.sum(root.right)
+        
+        leftProduct = leftSum * (self.total - leftSum)
+        rightProduct =  rightSum * (self.total - rightSum)
+        
+        self.res = max(self.res, leftProduct, rightProduct)
+        
+        return leftSum + rightSum + root.val
