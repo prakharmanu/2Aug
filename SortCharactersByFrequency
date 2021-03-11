@@ -1,0 +1,14 @@
+    def frequencySort(self, s: str) -> str:
+        result = ''
+        freq = {}
+        # Data structure formed - {key: freq_count, element_string_with_freq}
+        for ele in s:
+            if ele in freq:
+                freq[ele] = freq[ele][0] + 1, ele + freq[ele][1]
+            else:
+                freq[ele] = 1, ele
+
+        new = sorted(freq.items(), key=lambda item: item[1][0], reverse=True)
+        for ele in new:
+            result += ele[1][1]
+        return result
