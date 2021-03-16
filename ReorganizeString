@@ -1,0 +1,33 @@
+    def reorganizeString(self, S: str) -> str:
+        if not S:
+            return ""
+        # Build freq dict:
+        d = {}
+        for c in S:
+            if c in d:
+                d[c] += 1
+            else:
+                d[c] = 1
+        # push (-ve frq, char) pairs into heap
+        h = []
+        from heapq import heappush, heappop
+        for k in d:
+            heappush(h, (-d[k], k))
+        res = ""
+        # pop and examine frq and append to res
+        while len(h) > 1:
+            f1, c1 = heappop(h)
+            f2, c2 = heappop(h)
+            res += c1
+            res += c2
+            if abs(f1) > 1:  # if char repeats
+                heappush(h, (f1 + 1, c1))  # push back with decrement frq
+            if abs(f2) > 1:
+                heappush(h, (f2 + 1, c2))  # push back with decrement frq
+        if h:  # -------------------------------- NOTE [2]
+            f, c = h[0]
+            if abs(f) > 1:
+                return ""
+            else:
+                res += c
+        return res
