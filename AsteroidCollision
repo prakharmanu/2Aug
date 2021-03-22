@@ -1,4 +1,4 @@
-    def asteroidCollision(self, asteroids: List[int]) -> List[int]:
+    def asteroidCollision(self, asteroids: List[int]):
         res = []
         for asteroid in asteroids:
             # We only need to resolve collisions under the following conditions:
