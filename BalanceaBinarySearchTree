@@ -1,4 +1,4 @@
-	def balanceBST(self, root: TreeNode) -> TreeNode:
+	def balanceBST(self, root: TreeNode):
 		v = []
 		def dfs(node):
 			if node:
