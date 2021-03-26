@@ -1,4 +1,4 @@
-    def maxProfit(self, prices):
+    def maxProfit(self,prices):
         max_p=0
         minimum=float('inf')
         for i in prices:
