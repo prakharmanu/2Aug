@@ -1,4 +1,4 @@
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
+    def preorderTraversal(self, root: TreeNode) :
         res = []
         self.dfs(root, res)
         return res
