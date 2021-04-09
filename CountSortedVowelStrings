@@ -1,4 +1,4 @@
-    def countVowelStrings(self, n: int) -> int:
+    def countVowelStrings(self, n: int):
         dp = [[i for i in range(5,0,-1)] for _ in range(n)]
         for i in range(1,n):
             for j in range(3,-1,-1):
