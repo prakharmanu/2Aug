@@ -1,4 +1,4 @@
-    def numDistinct(self, s: str, t: str) -> int:
+    def numDistinct(self, s: str, t: str):
         dp = [[0] * (len(s) + 1) for _ in range(len(t) + 1)]
         for col in range(len(dp[0])):
             dp[0][col] = 1
