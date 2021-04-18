@@ -1,0 +1,13 @@
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        start, end, s, n = 0, -1, 0, len(nums)
+        min_len = n + 1
+        while end < n - 1:
+            end += 1
+            s += nums[end]
+            while s >= target:
+                min_len = min(min_len, end - start + 1)
+                s -= nums[start]
+                start += 1
+            if min_len == 1:  # can't get better
+                return 1
+        return min_len if min_len < n + 1 else 0
