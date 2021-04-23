@@ -1,0 +1,11 @@
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        res = {}
+        def dfs(node, height):
+            if node is None: return        
+            dfs(node.right, height + 1)
+            if height not in res:
+                res[height] = node.val
+            dfs(node.left, height + 1)
+            
+        dfs(root, 0)
+        return (res[i] for i in range(len(res)))
