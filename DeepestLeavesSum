@@ -1,0 +1,16 @@
+        def dfs1( node):
+            if not node:
+                return 0
+            return max(dfs1(node.left), dfs1(node.right)) + 1
+        
+        def dfs(node, depth):
+            if not node: return 0
+            if depth == d:
+                self.ans += node.val
+            dfs(node.left, depth+1)
+            dfs(node.right, depth+1)
+        
+        self.ans = 0
+        d = dfs1(root)
+        dfs(root, 1)
+        return self.ans
