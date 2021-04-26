@@ -1,0 +1,9 @@
+def numPairsDivisibleBy60(time) :
+    residual = collections.defaultdict(int)
+    counter = 0
+    for t in time:
+        remainder = t % 60
+        complement_remainder = (60 - t) % 60
+        counter += residual[ complement_remainder ]
+        residual[ remainder ] += 1
+    return counter
